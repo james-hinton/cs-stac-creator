@@ -1,6 +1,6 @@
 ISO = {
     'fiji' : 'FJI',
-    'solomon Islands' : 'SLB',
+    'solomon islands' : 'SLB',
     'vanuatu' : 'VUT',
 }
 

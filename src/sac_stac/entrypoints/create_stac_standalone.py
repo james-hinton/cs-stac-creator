@@ -19,12 +19,14 @@ import boto3
 logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 
-S3_ACCESS_KEY_ID = get_s3_configuration()["key_id"]
-S3_SECRET_ACCESS_KEY = get_s3_configuration()["access_key"]
-S3_REGION = get_s3_configuration()["region"]
-S3_ENDPOINT = get_s3_configuration()["endpoint"]
-S3_BUCKET = get_s3_configuration()["bucket"]
-S3_STAC_KEY = get_s3_configuration()["stac_key"]
+s3_config = get_s3_configuration()
+
+S3_ACCESS_KEY_ID = s3_config["key_id"]
+S3_SECRET_ACCESS_KEY = s3_config["access_key"]
+S3_REGION = s3_config["region"]
+S3_ENDPOINT = s3_config["endpoint"]
+S3_BUCKET = s3_config["bucket"]
+S3_STAC_KEY = s3_config["stac_key"]
 S3_HREF = f"{S3_ENDPOINT}/{S3_BUCKET}"
 
 s3 = S3(key=S3_ACCESS_KEY_ID, secret=S3_SECRET_ACCESS_KEY,

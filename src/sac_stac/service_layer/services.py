@@ -31,7 +31,7 @@ def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_o
     try:
         catalog_dict = repo.get_dict(bucket=S3_BUCKET, key=S3_CATALOG_KEY)
         catalog = Catalog.from_dict(catalog_dict)
-    except:
+    except Exception:
         logger.info(f"No catalog found in {S3_CATALOG_KEY}")
         logger.info("Creating new catalog...")
         catalog = Catalog(
@@ -53,7 +53,7 @@ def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_o
     try:
         repo.get_dict(bucket=S3_BUCKET, key=collection_key)
         logger.info(f"Collection {sensor_name} already exists in {collection_key}")
-    except:
+    except Exception:
         logger.info(f"Creating {sensor_name} collection...")
         collection = SacCollection(
             id=sensor_conf.get('id'),
@@ -111,7 +111,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
         try:
             repo.get_dict(bucket=S3_BUCKET, key=item_key)
             logger.info(f"Item {item_id} already exists in {item_key}")
-        except:
+        except Exception:
             sensor_conf = [s for s in config.get('sensors') if s.get('id') == collection.id][0]
             logger.debug(f"[Item] Creating {item_id} item...")
             # Get date from acquisition name
@@ -129,7 +129,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
                 )
                 product_sample_href = f"{S3_HREF}/{product_sample_key}"
                 geometry, crs = get_geometry_from_cog(product_sample_href)
-            except:
+            except Exception:
                 logger.error(f"No bands found on {acquisition_key} acquisition.")
                 raise
 
