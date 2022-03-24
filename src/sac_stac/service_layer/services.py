@@ -62,13 +62,13 @@ def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_o
             extent=Extent(SpatialExtent([[0, 0, 0, 0]]), TemporalExtent([["", ""]])),
             properties={}
         )
-        
+
         collection.add_providers(sensor_conf)
         collection.add_product_definition_extension(
             product_definition=sensor_conf.get('extensions').get('product_definition'),
             bands_metadata=sensor_conf.get('extensions').get('eo').get('bands')
         )
-        
+
         catalog.add_child(collection)
         catalog.normalize_hrefs(f"{S3_HREF}/{S3_STAC_KEY}")
 
@@ -78,19 +78,19 @@ def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_o
             key=S3_CATALOG_KEY,
             stac_dict=catalog.to_dict()
         )
-        
+
         repo.add_json_from_dict(
             bucket=S3_BUCKET,
             key=collection_key,
             stac_dict=collection.to_dict()
         )
         logger.info(f"{sensor_name} collection added to {S3_CATALOG_KEY}")
-    
+
     acquisition_keys = repo.get_acquisition_keys(bucket=S3_BUCKET,
                                                  acquisition_prefix=sensor_key)
     for acquisition_key in acquisition_keys:
         add_stac_item(repo=repo, acquisition_key=acquisition_key, update_collection_on_item=update_collection_on_item)
-    
+
     return 'collection', collection_key
 
 
@@ -105,7 +105,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
     try:
         collection_dict = repo.get_dict(bucket=S3_BUCKET, key=collection_key)
         collection = SacCollection.from_dict(collection_dict)
-        
+
         item_id = acquisition_key.split('/')[-2]
         item_key = f"{S3_STAC_KEY}/{collection.id}/{item_id}/{item_id}.json"
         try:
@@ -144,7 +144,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
 
             item.ext.enable('projection')
             item.ext.projection.epsg = GENERIC_EPSG
-            
+    
             item.add_extensions(sensor_conf.get('extensions'))
             item.add_common_metadata(sensor_conf.get('common_metadata'))
 
@@ -155,7 +155,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
                 asset_href = ''
                 proj_shp = [0, 0]
                 proj_tran = [0, 0, 0, 0, 0, 0]
-                
+
                 band_name_in_product_keys = [p for p in product_keys if band_name in p]
 
                 if band_name_in_product_keys:
