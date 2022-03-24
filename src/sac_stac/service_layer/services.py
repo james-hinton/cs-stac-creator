@@ -10,6 +10,8 @@ from sac_stac.adapters.repository import S3Repository, NoObjectError
 from sac_stac.domain.model import SacCollection, SacItem
 from sac_stac.domain.operations import obtain_date_from_filename, get_geometry_from_cog, \
     get_projection_from_cog
+from sac_stac.service_layer.operations import get_iso
+
 from sac_stac.load_config import config, LOG_LEVEL, LOG_FORMAT, get_s3_configuration
 
 logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
@@ -23,13 +25,13 @@ S3_HREF = f"{S3_ENDPOINT}/{S3_BUCKET}"
 GENERIC_EPSG = 4326
 
 
-def add_stac_collection(repo: S3Repository, sensor_key: str):
+def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_on_item: bool = True):
     STAC_IO.read_text_method = repo.stac_read_method
 
     try:
         catalog_dict = repo.get_dict(bucket=S3_BUCKET, key=S3_CATALOG_KEY)
         catalog = Catalog.from_dict(catalog_dict)
-    except NoObjectError:
+    except Exception:
         logger.info(f"No catalog found in {S3_CATALOG_KEY}")
         logger.info("Creating new catalog...")
         catalog = Catalog(
@@ -51,7 +53,7 @@ def add_stac_collection(repo: S3Repository, sensor_key: str):
     try:
         repo.get_dict(bucket=S3_BUCKET, key=collection_key)
         logger.info(f"Collection {sensor_name} already exists in {collection_key}")
-    except NoObjectError:
+    except Exception:
         logger.info(f"Creating {sensor_name} collection...")
         collection = SacCollection(
             id=sensor_conf.get('id'),
@@ -87,15 +89,16 @@ def add_stac_collection(repo: S3Repository, sensor_key: str):
     acquisition_keys = repo.get_acquisition_keys(bucket=S3_BUCKET,
                                                  acquisition_prefix=sensor_key)
     for acquisition_key in acquisition_keys:
-        add_stac_item(repo=repo, acquisition_key=acquisition_key)
+        add_stac_item(repo=repo, acquisition_key=acquisition_key, update_collection_on_item=update_collection_on_item)
 
     return 'collection', collection_key
 
 
-def add_stac_item(repo: S3Repository, acquisition_key: str):
+def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on_item: bool = True):
     STAC_IO.read_text_method = repo.stac_read_method
 
     sensor_name = acquisition_key.split('/')[-3]
+    region = acquisition_key.split('/')[-4]
     collection_key = f"{S3_STAC_KEY}/{sensor_name}/collection.json"
     logger.debug(f"[Item] Adding {acquisition_key} item to {sensor_name}...")
 
@@ -108,7 +111,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str):
         try:
             repo.get_dict(bucket=S3_BUCKET, key=item_key)
             logger.info(f"Item {item_id} already exists in {item_key}")
-        except NoObjectError:
+        except Exception:
             sensor_conf = [s for s in config.get('sensors') if s.get('id') == collection.id][0]
             logger.debug(f"[Item] Creating {item_id} item...")
             # Get date from acquisition name
@@ -126,7 +129,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str):
                 )
                 product_sample_href = f"{S3_HREF}/{product_sample_key}"
                 geometry, crs = get_geometry_from_cog(product_sample_href)
-            except NoObjectError:
+            except Exception:
                 logger.error(f"No bands found on {acquisition_key} acquisition.")
                 raise
 
@@ -141,7 +144,7 @@ def add_stac_item(repo: S3Repository, acquisition_key: str):
 
             item.ext.enable('projection')
             item.ext.projection.epsg = GENERIC_EPSG
-
+    
             item.add_extensions(sensor_conf.get('extensions'))
             item.add_common_metadata(sensor_conf.get('common_metadata'))
 
@@ -179,10 +182,16 @@ def add_stac_item(repo: S3Repository, acquisition_key: str):
                 logger.debug(f"[Asset] Adding {asset_href} asset to {acquisition_key}...")
                 item.add_asset(key=band_common_name, asset=asset)
 
+            if sensor_conf.get('extensions').get('odc'):
+                item.ext.enable('odc')
+                item.ext.odc.region_code = get_iso(region)
+            
             collection.add_item(item)
-            collection.update_extent_from_items()
-            collection.normalize_hrefs(f"{S3_HREF}/{S3_STAC_KEY}/{collection.id}")
-
+            
+            if update_collection_on_item:
+                collection.update_extent_from_items()
+                collection.normalize_hrefs(f"{S3_HREF}/{S3_STAC_KEY}/{collection.id}")
+            
             # TODO: Replace STAC_IO.write_text_method
             repo.add_json_from_dict(
                 bucket=S3_BUCKET,
