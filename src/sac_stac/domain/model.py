@@ -21,7 +21,7 @@ class SacCollection(Collection):
         self.ext.product_definition.metadata = product_definition.get('metadata')
         a = [{'name': v for k, v in d.items() if k == 'common_name'} for d in bands_metadata]
         b = [{k: v for k, v in d.items() if k != 'common_name' and k != 'name'} for d in bands_metadata]
-        self.ext.product_definition.measurements = [list(x.items()) + list(y.items()) for x, y in zip(a, b)]
+        self.ext.product_definition.measurements = [x | y for x, y in zip(a, b)]
 
 
 class SacItem(Item):
