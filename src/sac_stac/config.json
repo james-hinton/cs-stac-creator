@@ -5,7 +5,8 @@
   "extensions": [
     "eo",
     "projection",
-    "product_definition"
+    "product_definition",
+    "odc"
   ],
   "output_url": "https://s3-uk-1.sa-catapult.co.uk/public-eo-data/stac_catalogs/cs_stac",
   "sensors": [
