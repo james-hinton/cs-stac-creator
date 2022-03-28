@@ -51,13 +51,20 @@ def main():
         try:
             sensor_name = platform['Prefix'].split('/')[-2]
             add_stac_collection(repo=repo, sensor_key=platform['Prefix'], update_collection_on_item=False)
+
+            # Update Collection
             collection_key = f"{S3_STAC_KEY}/{sensor_name}/collection.json"
             collection_dict = repo.get_dict(bucket=S3_BUCKET, key=collection_key)
-            
-            # Rather than looping this everytime, we can do this at the end (saves a lot of time)
             collection = SacCollection.from_dict(collection_dict)
             collection.update_extent_from_items()
             collection.normalize_hrefs(f"{S3_HREF}/{S3_STAC_KEY}/{collection.id}")
+            
+            repo.add_json_from_dict(
+                bucket=S3_BUCKET,
+                key=collection_key,
+                stac_dict=collection.to_dict()
+            )
+
         except Exception as e:
             logger.error(f"Error adding collection for {platform['Prefix']} :: {e}")
     
