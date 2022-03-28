@@ -192,13 +192,13 @@ def add_stac_item(repo: S3Repository, acquisition_key: str, update_collection_on
                 collection.update_extent_from_items()
                 collection.normalize_hrefs(f"{S3_HREF}/{S3_STAC_KEY}/{collection.id}")
             
+                repo.add_json_from_dict(
+                    bucket=S3_BUCKET,
+                    key=collection_key,
+                    stac_dict=collection.to_dict()
+                )
+                
             # TODO: Replace STAC_IO.write_text_method
-            repo.add_json_from_dict(
-                bucket=S3_BUCKET,
-                key=collection_key,
-                stac_dict=collection.to_dict()
-            )
-
             repo.add_json_from_dict(
                 bucket=S3_BUCKET,
                 key=item_key,
