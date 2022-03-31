@@ -46,10 +46,10 @@ class S3:
         Returns:
             An iterable of ObjectSummary resources
         """
-        if prefix:
-            objects = list(self.s3_resource.Bucket(bucket_name).objects.filter(Prefix=prefix).limit(limit))
-        else:
-            objects = list(self.s3_resource.Bucket(bucket_name).objects.all().limit(limit))
+        paginator = self.s3_resource.meta.client.get_paginator('list_objects_v2')
+        pages = paginator.paginate(Bucket="public-eo-data", Prefix=prefix)
+        
+        objects = [self.s3_resource.ObjectSummary(bucket_name, item['Key']) for page in pages for item in page['Contents']]
 
         if not objects:
             raise NoObjectError(f'Nothing found with {prefix}*{suffix} in {bucket_name} bucket')
@@ -89,11 +89,12 @@ class S3:
             prefix                 (str): Prefix
         """
         common_prefixes = []
-        paginator = self.s3_resource.meta.client.get_paginator('list_objects')
-
-        for result in paginator.paginate(Bucket=bucket_name, Prefix=prefix, Delimiter='/'):
-            if result.get('CommonPrefixes'):
-                common_prefixes = [p.get('Prefix') for p in result.get('CommonPrefixes')]
+        paginator = self.s3_resource.meta.client.get_paginator('list_objects_v2')
+        pages = paginator.paginate(Bucket=bucket_name, Prefix=prefix, Delimiter='/')
+        for page in pages:
+            if page.get('CommonPrefixes'):
+                for p in page.get('CommonPrefixes'):
+                    common_prefixes.append(p.get('Prefix'))
 
         return common_prefixes
 
