@@ -89,7 +89,10 @@ def add_stac_collection(repo: S3Repository, sensor_key: str, update_collection_o
     acquisition_keys = repo.get_acquisition_keys(bucket=S3_BUCKET,
                                                  acquisition_prefix=sensor_key)
     for acquisition_key in acquisition_keys:
-        add_stac_item(repo=repo, acquisition_key=acquisition_key, update_collection_on_item=update_collection_on_item)
+        try:
+            add_stac_item(repo=repo, acquisition_key=acquisition_key, update_collection_on_item=update_collection_on_item)
+        except Exception as e:
+            logger.warning(f"could not add {acquisition_key}: {e}")
 
     return 'collection', collection_key
 
