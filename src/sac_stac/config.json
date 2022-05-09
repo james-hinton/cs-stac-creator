@@ -517,7 +517,7 @@
             },
             {
               "name": "bt_band6",
-              "common_name": "lwir",
+              "common_name": "lwir11",
               "units": "1",
               "dtype": "uint16",
               "nodata": -9999
@@ -632,7 +632,7 @@
             },
             {
               "name": "bt_band6",
-              "common_name": "lwir",
+              "common_name": "lwir11",
               "units": "1",
               "dtype": "uint16",
               "nodata": -9999
