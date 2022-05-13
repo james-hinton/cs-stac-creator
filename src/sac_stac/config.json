@@ -780,7 +780,7 @@
               "name": "_water",
               "common_name": "water_wofs",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -846,7 +846,7 @@
               "name": "_water",
               "common_name": "water_wofs",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -912,7 +912,7 @@
               "name": "_water",
               "common_name": "water_wofs",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -978,7 +978,7 @@
               "name": "_water",
               "common_name": "water_wofs",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1044,7 +1044,7 @@
               "name": "_water",
               "common_name": "water_wofs",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1110,7 +1110,7 @@
               "name": "_watermask",
               "common_name": "water_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             },
             {
@@ -1183,14 +1183,14 @@
               "name": "_watermask",
               "common_name": "water_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             },
             {
               "name": "_waterprob",
               "common_name": "waterprob_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1256,14 +1256,14 @@
               "name": "_watermask",
               "common_name": "water_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             },
             {
               "name": "_waterprob",
               "common_name": "waterprob_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1329,14 +1329,14 @@
               "name": "_watermask",
               "common_name": "water_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             },
             {
               "name": "_waterprob",
               "common_name": "waterprob_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1402,14 +1402,14 @@
               "name": "_watermask",
               "common_name": "water_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             },
             {
               "name": "_waterprob",
               "common_name": "waterprob_ml",
               "units": "1",
-              "dtype": "uint16",
+              "dtype": "int16",
               "nodata": -9999
             }
           ]
@@ -1476,42 +1476,42 @@
                 "common_name": "blue",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               },
               {
                 "name": "green",
                 "common_name": "green",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               },
               {
                 "name": "red",
                 "common_name": "red",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               },
               {
                 "name": "nir",
                 "common_name": "nir08",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               },
               {
                 "name": "swir1",
                 "common_name": "swir16",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               },
               {
                 "name": "swir2",
                 "common_name": "swir22",
                 "units": "1",
                 "dtype": "uint16",
-                "nodata": -9999
+                "nodata": 0
               }
             ]
           },
