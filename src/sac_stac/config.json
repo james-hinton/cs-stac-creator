@@ -220,84 +220,84 @@
               "common_name": "coastal",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band2",
               "common_name": "blue",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band3",
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band4",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band5",
               "common_name": "nir08",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band6",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band7",
               "common_name": "swir22",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "bt_band10",
               "common_name": "lwir11",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "bt_band1",
               "common_name": "lwir12",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "pixel_qa",
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "radsat_qa",
               "common_name": "radsat_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_aerosol",
               "common_name": "aerosol",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -363,56 +363,56 @@
               "common_name": "blue",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band2",
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band3",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band4",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band5",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band7",
               "common_name": "swir22",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "bt_band6",
               "common_name": "lwir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "pixel_qa",
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -478,56 +478,56 @@
               "common_name": "blue",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band2",
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band3",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band4",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band5",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band7",
               "common_name": "swir22",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "bt_band6",
               "common_name": "lwir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "pixel_qa",
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -593,56 +593,56 @@
               "common_name": "blue",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band2",
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band3",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band4",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band5",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "sr_band7",
               "common_name": "swir22",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "bt_band6",
               "common_name": "lwir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "pixel_qa",
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -707,15 +707,15 @@
               "name": "Gamma0_VH_db",
               "common_name": "gamma0_VH",
               "units": "1",
-              "dtype": "uint16",
-              "nodata": 0
+              "dtype": "float32",
+              "nodata": NaN
             },
             {
               "name": "Gamma0_VV_db",
               "common_name": "gamma0_VV",
               "units": "1",
-              "dtype": "uint16",
-              "nodata": 0
+              "dtype": "float32",
+              "nodata": NaN
             }
           ]
         },
@@ -1583,21 +1583,21 @@
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS2",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS3",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -1669,21 +1669,21 @@
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS2",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS3",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -1755,21 +1755,21 @@
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS2",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS3",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -1841,28 +1841,28 @@
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS2",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS3",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS4",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -1934,28 +1934,28 @@
               "common_name": "green",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS2",
               "common_name": "red",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS3",
               "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             },
             {
               "name": "XS4",
               "common_name": "swir16",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -2027,7 +2027,7 @@
               "common_name": "pan",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -2099,7 +2099,7 @@
               "common_name": "pan",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -2171,7 +2171,7 @@
               "common_name": "pan",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
@@ -2243,7 +2243,7 @@
               "common_name": "pan",
               "units": "1",
               "dtype": "uint16",
-              "nodata": -9999
+              "nodata": 0
             }
           ]
         },
