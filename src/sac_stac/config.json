@@ -283,7 +283,7 @@
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": 0
+              "nodata": 1
             },
             {
               "name": "radsat_qa",
@@ -412,7 +412,7 @@
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": 0
+              "nodata": 1
             }
           ]
         },
@@ -527,7 +527,7 @@
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": 0
+              "nodata": 1
             }
           ]
         },
@@ -642,7 +642,7 @@
               "common_name": "pixel_qa",
               "units": "1",
               "dtype": "uint16",
-              "nodata": 0
+              "nodata": 1
             }
           ]
         },
