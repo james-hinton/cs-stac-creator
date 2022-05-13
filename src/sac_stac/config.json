@@ -88,21 +88,21 @@
             },
             {
               "name": "B05_20m",
-              "common_name": "something",
+              "common_name": "red_edge_1",
               "units": "1",
               "dtype": "uint16",
               "nodata": 0
             },
             {
               "name": "B06_20m",
-              "common_name": "something",
+              "common_name": "red_edge_2",
               "units": "1",
               "dtype": "uint16",
               "nodata": 0
             },
             {
               "name": "B07_20m",
-              "common_name": "something",
+              "common_name": "red_edge_3",
               "units": "1",
               "dtype": "uint16",
               "nodata": 0
@@ -151,7 +151,7 @@
             },
             {
               "name": "WVP_10m",
-              "common_name": "something",
+              "common_name": "wvp",
               "units": "1",
               "dtype": "uint16",
               "nodata": 0
