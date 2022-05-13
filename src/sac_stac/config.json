@@ -1431,6 +1431,107 @@
       }
     },
     {
+      "id": "landsat_8_geomedian",
+      "title": "USGS Landsat-7 Geomedian Datasets",
+      "description": "A collection of Landsat-5 geomedian datasets.",
+      "s3_url": "https://s3-uk-1.sa-catapult.co.uk/public-eo-data/common_sensing/fiji/landsat_8_geomedian/",
+      "formatting": {
+        "date": {
+          "regex": "(\\d{8})",
+          "format": "%Y%m%d"
+        }
+      },
+      "providers": [
+        {
+          "name": "USGS",
+          "roles": [
+            "producer",
+            "licensor"
+          ],
+          "url": "https://www.usgs.gov/"
+        },
+        {
+          "name": "Satellite Applications Catapult",
+          "roles": [
+            "processor",
+            "host"
+          ],
+          "url": "https://sa.catapult.org.uk/"
+        }
+      ],
+      "common_metadata": {
+        "gsd": 30,
+        "instruments": [
+          "tm"
+        ],
+        "constellation": "landsat_8_geomedian",
+        "platform": "landsat_8_geomedian"
+      },
+      "extensions": {
+          "eo": {
+            "cloud_cover": 0.0,
+            "bands": [
+              {
+                "name": "blue",
+                "common_name": "blue",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              },
+              {
+                "name": "green",
+                "common_name": "green",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              },
+              {
+                "name": "red",
+                "common_name": "red",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              },
+              {
+                "name": "nir",
+                "common_name": "nir08",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              },
+              {
+                "name": "swir1",
+                "common_name": "swir16",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              },
+              {
+                "name": "swir2",
+                "common_name": "swir22",
+                "units": "1",
+                "dtype": "uint16",
+                "nodata": -9999
+              }
+            ]
+          },
+          "product_definition": {
+          "metadata_type": "eo3",
+          "metadata": {
+            "product": {
+              "name": "landsat_8_geomedian"
+            },
+            "eo:platform" : {
+              "name": "landsat_5_geomedian"
+            }
+          }
+        },
+        "odc" : {
+          "region_code" : ""
+        }
+      }
+    },
+    {
       "id": "SPOT1_MS",
       "title": "SPOT1_MS datasets",
       "description": "A collection of SPOT1_MS datasets. Procured from Airbus, prepared by UNEP-Geneva.",
