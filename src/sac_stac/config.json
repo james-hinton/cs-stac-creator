@@ -381,7 +381,7 @@
             },
             {
               "name": "sr_band4",
-              "common_name": "nir08",
+              "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
               "nodata": -9999
@@ -496,7 +496,7 @@
             },
             {
               "name": "sr_band4",
-              "common_name": "nir08",
+              "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
               "nodata": -9999
@@ -611,7 +611,7 @@
             },
             {
               "name": "sr_band4",
-              "common_name": "nir08",
+              "common_name": "nir",
               "units": "1",
               "dtype": "uint16",
               "nodata": -9999
